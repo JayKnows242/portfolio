@@ -1,0 +1,14 @@
+# Render Blueprint — serves this folder as a free static site.
+# Either: New + -> Blueprint -> pick this repo (uses this file),
+# or use the manual "New Static Site" flow (no build command, publish dir ".").
+services:
+  - type: web
+    name: justin-portfolio
+    runtime: static
+    buildCommand: "echo 'static site - nothing to build'"
+    staticPublishPath: .
+    pullRequestPreviewsEnabled: false
+    headers:
+      - path: /*
+        name: Cache-Control
+        value: public, max-age=600
